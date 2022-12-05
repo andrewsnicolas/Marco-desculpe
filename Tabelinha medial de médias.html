@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média</title>
+    <style>
+    td
+    {
+        height: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 8px;
+        border-style: groove;
+        border-width: 5px;
+        background-color: aliceblue;
+    }
+    img
+    {
+        height: 45px;
+        width: 45px;
+    }
+    table
+    {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+        border-radius: 8px;
+    }
+    .S
+    {
+        height: 20px;
+    }
+    .td
+    {
+        width: 120px;
+    }
+    body
+    {
+        background-color: rgb(145, 224, 255);
+    }
+    div
+    {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        text-align: center;
+        width: 1000px;
+        font-family: cursive;
+        font-size: 40px;
+    }
+
+    </style>
+</head>
+<body>
+    <script language="javascript">
+    var a, mg = 0, qam = 0, pa = 0, aux = 0;
+    a = new Array();
+
+    for (i = 0; i <= 39; i++)
+    {
+        do
+        {
+            parseFloat(a[i] = window.prompt("Digite a média final do " + (i+1) + "º aluno: "));
+        }while(a[i] < 0 || a[i] > 10)
+    }
+
+    for (i = 0; i < a.length; i++)
+    {
+        mg += parseFloat(a[i]);
+
+        if (i == (a.length - 1))
+        {
+            mg = mg/a.length;
+        }
+    }
+
+    for (i = 0; i < a.length; i++)
+    {
+        if (a[i] >= mg)
+        {
+            qam++;
+        }
+    }
+
+    for (i = 0; i < a.length; i++)
+    {
+        if (a[i] >= 6)
+        {
+            aux++;
+        }
+        if (i == (a.length - 1))
+        {
+            pa = (100*aux)/40;
+        }
+    }
+    document.write("<div>PROJETO – HTML/JAVASCRIPT/ARRAY</div>")
+    document.write("<table><tr><td colspan='3'>Média geral da turma:</td><td>" + mg + "</td>");
+    document.write("<tr><td colspan='3'>Quantidade de alunos acima da média:</td><td>" + qam + "</td>");
+    document.write("<tr><td colspan='3'>Percentual de aprovados:</td><td>" + pa + "%</td><tr><td colspan='4' class='S'></td></tr>");
+    document.write("<tr><td class='td'>Nº do Aluno</td><td class='td'>Média Final</td><td class='td'>Indicativo Visual</td><td>Pontos para atingir a aprovação</td></tr>");
+
+    for (i = 0; i < a.length; i++)
+    {
+        document.write("<tr><td>" + (i+1) + "</td><td>" + a[i] + "</td>"); 
+        if (a[i] >= 6)   
+        {
+            document.write("<td><img src='POSITIVO.png'></td><td>---</td></tr>");
+        }else
+            {
+                document.write("<td><img src='NEGATIVO.png'></td><td>" + (6 - a[i]) + "</td></tr>");
+            }
+    }
+    document.write("</table>");
+
+    </script>
+</body>
+</html>
